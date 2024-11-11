@@ -1,0 +1,550 @@
+[
+    {
+        "id": "ed428c295c51118c",
+        "type": "tab",
+        "label": "EcoCharge",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "bde25f9371dbbf21",
+        "type": "debug",
+        "z": "ed428c295c51118c",
+        "name": "Debug Sensor 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "4c066bcb25b43f4e",
+        "type": "mqtt in",
+        "z": "ed428c295c51118c",
+        "name": "",
+        "topic": "ecocharge/sensor1status",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "60fc64253c06d3cb",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 350,
+        "y": 260,
+        "wires": [
+            [
+                "bde25f9371dbbf21",
+                "58b71d6251104c83"
+            ]
+        ]
+    },
+    {
+        "id": "b4adb15df9782744",
+        "type": "debug",
+        "z": "ed428c295c51118c",
+        "name": "Debug Sensor 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1160,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "a46880d821420e02",
+        "type": "mqtt in",
+        "z": "ed428c295c51118c",
+        "name": "",
+        "topic": "ecocharge/sensor2status",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "60fc64253c06d3cb",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 930,
+        "y": 260,
+        "wires": [
+            [
+                "b4adb15df9782744",
+                "ad738497dec8236c"
+            ]
+        ]
+    },
+    {
+        "id": "58b71d6251104c83",
+        "type": "function",
+        "z": "ed428c295c51118c",
+        "name": "function 1",
+        "func": "msg.color = msg.payload === \"Ocupado\" ? \"red\" : \"green\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 360,
+        "wires": [
+            [
+                "3082da1716fa8c3d"
+            ]
+        ]
+    },
+    {
+        "id": "1f67204ad66894db",
+        "type": "ui-template",
+        "z": "ed428c295c51118c",
+        "group": "1c437b63d6fd2501",
+        "page": "",
+        "ui": "",
+        "name": "Status",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<style>\n  .status-text {\n    font-weight: bold;\n    font-size: 20px;\n  }\n  .status-label {\n    color: black;\n  }\n  .status-ocupado {\n    color: red;\n  }\n  .status-vazio {\n    color: green;\n  }\n  .status-default {\n    color: gray;\n  }\n</style>\n\n<div class=\"status-text\">\n  <span class=\"status-label\">Status: </span>\n  <span :class=\"{\n    'status-ocupado': msg.payload === 'Ocupado',\n    'status-vazio': msg.payload === 'Vazio',\n    'status-default': msg.payload !== 'Ocupado' && msg.payload !== 'Vazio'\n  }\">\n    {{ msg.payload || 'Aguardando dados...' }}\n  </span>\n</div>\n",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1250,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ad738497dec8236c",
+        "type": "function",
+        "z": "ed428c295c51118c",
+        "name": "function 2",
+        "func": "msg.color = msg.payload === \"Ocupado\" ? \"red\" : \"green\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 360,
+        "wires": [
+            [
+                "1f67204ad66894db"
+            ]
+        ]
+    },
+    {
+        "id": "3082da1716fa8c3d",
+        "type": "ui-template",
+        "z": "ed428c295c51118c",
+        "group": "5d29428d654eae59",
+        "page": "",
+        "ui": "",
+        "name": "Status",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<style>\n  .status-text {\n    font-weight: bold;\n    font-size: 20px;\n  }\n  .status-label {\n    color: black;\n  }\n  .status-ocupado {\n    color: red;\n  }\n  .status-vazio {\n    color: green;\n  }\n  .status-default {\n    color: gray;\n  }\n</style>\n\n<div class=\"status-text\">\n  <span class=\"status-label\">Status: </span>\n  <span :class=\"{\n    'status-ocupado': msg.payload === 'Ocupado',\n    'status-vazio': msg.payload === 'Vazio',\n    'status-default': msg.payload !== 'Ocupado' && msg.payload !== 'Vazio'\n  }\">\n    {{ msg.payload || 'Aguardando dados...' }}\n  </span>\n</div>\n",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 670,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "982562003d0d5eef",
+        "type": "ui-chart",
+        "z": "ed428c295c51118c",
+        "group": "5d29428d654eae59",
+        "name": "",
+        "label": "Distância",
+        "order": 3,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "0",
+        "ymax": "400",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": false,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": "3",
+        "height": "6",
+        "className": "",
+        "interpolation": "linear",
+        "x": 620,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "84f946a2cbcb0ce0",
+        "type": "mqtt in",
+        "z": "ed428c295c51118c",
+        "name": "",
+        "topic": "ecocharge/sensor1distance",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "60fc64253c06d3cb",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 360,
+        "y": 480,
+        "wires": [
+            [
+                "982562003d0d5eef",
+                "e62f2bf3ef6387fe"
+            ]
+        ]
+    },
+    {
+        "id": "0069eeb6ba34537a",
+        "type": "ui-chart",
+        "z": "ed428c295c51118c",
+        "group": "1c437b63d6fd2501",
+        "name": "",
+        "label": "Distância",
+        "order": 3,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "0",
+        "ymax": "400",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": false,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": "3",
+        "height": "6",
+        "className": "",
+        "interpolation": "linear",
+        "x": 1160,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dbd15e937aea5e7a",
+        "type": "mqtt in",
+        "z": "ed428c295c51118c",
+        "name": "",
+        "topic": "ecocharge/sensor2distance",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "60fc64253c06d3cb",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 920,
+        "y": 480,
+        "wires": [
+            [
+                "0069eeb6ba34537a",
+                "89fda912a27b3668"
+            ]
+        ]
+    },
+    {
+        "id": "e62f2bf3ef6387fe",
+        "type": "ui-gauge",
+        "z": "ed428c295c51118c",
+        "name": "Medidor",
+        "group": "5d29428d654eae59",
+        "order": 2,
+        "width": "3",
+        "height": "6",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Medidor de Distância",
+        "units": "cm",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#ea5353"
+            },
+            {
+                "from": "30",
+                "color": "#5cd65c"
+            }
+        ],
+        "min": 0,
+        "max": "400",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 620,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "89fda912a27b3668",
+        "type": "ui-gauge",
+        "z": "ed428c295c51118c",
+        "name": "Medidor",
+        "group": "1c437b63d6fd2501",
+        "order": 2,
+        "width": "3",
+        "height": "6",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Medidor de Distância",
+        "units": "cm",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#ea5353"
+            },
+            {
+                "from": "30",
+                "color": "#5cd65c"
+            }
+        ],
+        "min": 0,
+        "max": "400",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 1180,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "60fc64253c06d3cb",
+        "type": "mqtt-broker",
+        "name": "HiveMQ",
+        "broker": "broker.hivemq.com ",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "1c437b63d6fd2501",
+        "type": "ui-group",
+        "name": "Ponto 2",
+        "page": "7e9dd9691c9b68e0",
+        "width": "6",
+        "height": "1",
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "5d29428d654eae59",
+        "type": "ui-group",
+        "name": "Ponto 1",
+        "page": "7e9dd9691c9b68e0",
+        "width": "6",
+        "height": "1",
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "7e9dd9691c9b68e0",
+        "type": "ui-page",
+        "name": "EcoCharge",
+        "ui": "2f714c3db8fe8c53",
+        "path": "/home",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "9f7fa5c052af4bc3",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "2f714c3db8fe8c53",
+        "type": "ui-base",
+        "name": "Dashboard EcoCharge",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "showPageTitle": true,
+        "navigationStyle": "default",
+        "titleBarStyle": "default"
+    },
+    {
+        "id": "9f7fa5c052af4bc3",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094ce",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    }
+]
