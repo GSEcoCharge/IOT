@@ -3,6 +3,9 @@
 <details open>
     <summary><h3><strong>📑 Sumário</strong></h3>
         <ol>
+            <li><a href="#descricao">Descrição do Projeto</a></li>
+            <li><a href="#funcionalidades">Principais Funcionalidades</a></li>
+            <li><a href="#tecnica">Descrição Técnica</a></li>
             <li><a href="#pre-requisitos">Pré-requisitos</a></li>
             <li><a href="#estrutura">Estrutura do Projeto</a></li>
             <li><a href="#passos">Passos para Replicar e Testar a Solução</a></li>
@@ -14,18 +17,61 @@
 
 <h2>📚 Descrição do Projeto</h2>
 
-Este projeto de IoT foi desenvolvido para monitorar a disponibilidade de vagas em um posto de carregamento elétrico para ser utilizado no aplicativo principal da solução EcoCharge ([Link da Organização](https://github.com/GSEcoCharge)), utilizando um sensor de distância ultrassônico para detectar a presença de veículos em um ponto específico. O sistema envia os dados do sensor para um dashboard em tempo real, onde é possível visualizar o status do ponto (Vazio ou Ocupado) e a distância do sensor em relação ao veículo.
+Este projeto apresenta um protótipo de **Estação de Carregamento Inteligente para Veículos Elétricos (EV)**, desenvolvido com um ESP32 para simulação no ambiente Wokwi. O objetivo principal é integrar sensores e atuadores, coletar dados em tempo real e exibir informações relevantes sobre o processo de carregamento em um dashboard interativo via Node-RED.
+
+<h2 id="funcionalidades">🛠️ Principais Funcionalidades</h2>
+
+1. **Simulação de Carregamento de EVs**:
+
+   - Mede a distância de um veículo usando um sensor ultrassônico para detectar se a estação está "Vazia" ou "Ocupada".
+   - Calcula a potência de carregamento com base na corrente (A), tensão (V), e no tipo de sistema (monofásico ou bifásico).
+   - Simula o nível da bateria, autonomia restante e tempo estimado para carga completa.
+
+2. **Protocolo MQTT para Comunicação**:
+
+   - Publica os dados coletados para um broker MQTT, permitindo monitoramento em tempo real.
+   - Alterna entre modos de exibição: dados no monitor serial ou envio via MQTT.
+
+3. **Painel de Controle Node-RED**:
+
+   - Dashboard interativo exibe:
+     - Status do ponto (Vazio/Ocupado)
+     - Potência consumida (kW)
+     - Percentual de carga da bateria
+     - Tempo estimado para conclusão do carregamento
+     - Simulação de autonomia restante do veículo
+
+4. **Simulação Realista**:
+   - Alteração dinâmica entre sistemas monofásico e bifásico via chave seletora, duplicando a potência de carregamento no modo bifásico.
+   - Ajuste do sensor de corrente para simular diferentes cenários de consumo.
+
+<h2 id="tecnica">📋 Descrição Técnica</h2>
+
+### **Componentes Utilizados**
+
+- **ESP32**: Microcontrolador responsável pelo processamento e comunicação.
+- **Sensor de Distância (HC-SR04)**: Detecta a presença de veículos na estação.
+- **Sensor de Corrente (ADC)**: Mede a corrente elétrica consumida durante o carregamento.
+- **LED**: Indica o status da estação (Carregando/Não carregando).
+- **Chave Seletora**: Alterna entre os sistemas monofásico e bifásico.
+- **Protocolo MQTT**: Transmite os dados para o broker.
+
+### **Parâmetros Simulados - Modelo BYD Dolphin Mini**
+
+- **Capacidade Máxima da Bateria**: 38 kWh
+- **Autonomia Total do Veículo**: 340 km
+- **Tensão de Alimentação**: 220V (Semirrápido)
+- **Corrente de Carregamento**: Ajustada pelo potenciômetro no ADC.
 
 <h2 id="pre-requisitos">🔧 Pré-requisitos</h2>
 
-Antes de começar, você precisa garantir que tem os seguintes itens instalados ou configurados:
-
-- [Node-RED](https://nodered.org/docs/getting-started/) instalado ou acessível
-- O arquivo `flows.json` deste repositório
+1. **Wokwi**: Simulação do hardware ESP32 e componentes associados.
+2. **Node-RED**: Gerenciamento do fluxo de dados e criação do dashboard.
+3. **MQTT Broker**: Hospedado em `broker.hivemq.com` para troca de mensagens.
 
 <h2 id="estrutura">📁 Estrutura do Projeto</h2>
 
-- **Código Arduino (Wokwi)**: O código do Arduino, que controla sensores e LEDs, está disponível na plataforma Wokwi neste [Link](https://wokwi.com/projects/414012916024807425).
+- **Código Arduino (Wokwi)**: O código do ESP32, está disponível na plataforma Wokwi neste [Link](https://wokwi.com/projects/414012916024807425) e localizado no arquivo `sketch.ino` neste repositório.
 - **flows.json**: O arquivo de configuração do fluxo do Node-RED, com todos os nós necessários para visualizar os dados, está disponível neste repositório.
 
 <h2>🚀 Passos para Replicar e Testar a Solução</h2>
@@ -36,6 +82,8 @@ Antes de começar, você precisa garantir que tem os seguintes itens instalados 
 2. Simule o código no Wokwi para garantir que os dados sejam enviados corretamente para o broker MQTT.
 
 ![Wokwi Simulation](Utils/imgs/wokwi-simulation.png)
+
+> Lembre de trocar o Interruptor abaixo da ProtoBoard para enviar dados para o Broker MQTT.
 
 ### 3. **Configuração do Node-RED**
 
@@ -55,6 +103,8 @@ Antes de começar, você precisa garantir que tem os seguintes itens instalados 
 
 3. Verifique se o fluxo está configurado para se conectar corretamente ao seu MQTT Broker e exibir os dados recebidos.
 
+![Node-RED Flow](Utils/imgs/node-red-flow.png)
+
 ### 4. **Configuração do Dashboard**
 
 1.  Caso o Node-RED ainda não tenha a paleta de dashboard instalada, instale a paleta necessária:
@@ -67,8 +117,8 @@ Antes de começar, você precisa garantir que tem os seguintes itens instalados 
 ### 5. **Testando a Solução**
 
 1.  Com o Wokwi simulando o código Arduino e enviando dados via MQTT, abra o dashboard no Node-RED em http://localhost:1880/dashboard/home.
-2.  O painel deve começar a exibir as informações do sensor de distância e o Status do ponto (Vazio ou Ocupado), com base nos dados recebidos do Arduino via MQTT.
-3.  Para testar a solução, movimente o sensor de distância e verifique como os dados são atualizados automaticamente no dashboard.
+2.  O painel deve começar a exibir as informações do sensor de distância e o Status do ponto (Vazio ou Ocupado), além de simular a Potência do ponto de carregamento e informações sobre a bateria do veículo.
+3.  Teste a solução movendo o sensor de distância para simular a presença de um veículo e ajustando o potenciômetro para simular a corrente do ponto de carregamento. (OBS: O Interruptor acima da ESP32 troca a simulação de um sistema monofásico para bifásico, duplicando a velocidade de carregamento)
 
 ![Node-RED Dashboard](Utils/imgs/node-red-dashboard.png)
 

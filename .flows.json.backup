@@ -242,8 +242,8 @@
         "nl": false,
         "rap": false,
         "inputs": 0,
-        "x": 540,
-        "y": 500,
+        "x": 530,
+        "y": 496,
         "wires": [
             [
                 "current_text"
@@ -268,7 +268,7 @@
         "fontSize": "",
         "color": "#000000",
         "x": 1090,
-        "y": 500,
+        "y": 496,
         "wires": []
     },
     {
