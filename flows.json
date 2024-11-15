@@ -8,165 +8,6 @@
         "env": []
     },
     {
-        "id": "mqtt_broker",
-        "type": "mqtt-broker",
-        "name": "HiveMQ Broker",
-        "broker": "broker.hivemq.com",
-        "port": "1883",
-        "clientid": "NodeREDClient",
-        "usetls": false,
-        "compatmode": true,
-        "keepalive": "60",
-        "cleansession": true,
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthPayload": "",
-        "closeTopic": "",
-        "closePayload": "",
-        "willTopic": "",
-        "willQos": "0",
-        "willPayload": ""
-    },
-    {
-        "id": "d9894dea32d11065",
-        "type": "ui_group",
-        "name": "Sensor de Distância",
-        "tab": "1ad5680cff09845b",
-        "order": 1,
-        "disp": true,
-        "width": 9,
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "a09422fd5fddeb31",
-        "type": "ui_group",
-        "name": "Informações Elétricas",
-        "tab": "1ad5680cff09845b",
-        "order": 2,
-        "disp": true,
-        "width": 9,
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "cec59fd685eb8c68",
-        "type": "ui_group",
-        "name": "Status de Carregamento",
-        "tab": "1ad5680cff09845b",
-        "order": 3,
-        "disp": true,
-        "width": 9,
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "1ad5680cff09845b",
-        "type": "ui_tab",
-        "name": "ECOCHARGE",
-        "icon": "fa-bolt",
-        "disabled": false,
-        "hidden": false
-    },
-    {
-        "id": "d9ea1e89de256116",
-        "type": "ui_base",
-        "theme": {
-            "name": "theme-custom",
-            "lightTheme": {
-                "default": "#0094CE",
-                "baseColor": "#0094CE",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": true,
-                "reset": false
-            },
-            "darkTheme": {
-                "default": "#097479",
-                "baseColor": "#097479",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
-            },
-            "customTheme": {
-                "name": "Untitled Theme 1",
-                "default": "#4B7930",
-                "baseColor": "#4B7930",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "reset": false
-            },
-            "themeState": {
-                "base-color": {
-                    "default": "#4B7930",
-                    "value": "#4B7930",
-                    "edited": false
-                },
-                "page-titlebar-backgroundColor": {
-                    "value": "#4B7930",
-                    "edited": false
-                },
-                "page-backgroundColor": {
-                    "value": "#111111",
-                    "edited": false
-                },
-                "page-sidebar-backgroundColor": {
-                    "value": "#333333",
-                    "edited": false
-                },
-                "group-textColor": {
-                    "value": "#6db046",
-                    "edited": false
-                },
-                "group-borderColor": {
-                    "value": "#555555",
-                    "edited": false
-                },
-                "group-backgroundColor": {
-                    "value": "#333333",
-                    "edited": false
-                },
-                "widget-textColor": {
-                    "value": "#eeeeee",
-                    "edited": false
-                },
-                "widget-backgroundColor": {
-                    "value": "#4b7930",
-                    "edited": false
-                },
-                "widget-borderColor": {
-                    "value": "#333333",
-                    "edited": false
-                },
-                "base-font": {
-                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
-                }
-            },
-            "angularTheme": {
-                "primary": "indigo",
-                "accents": "blue",
-                "warn": "red",
-                "background": "grey",
-                "palette": "light"
-            }
-        },
-        "site": {
-            "name": "Node-RED Dashboard",
-            "hideToolbar": "false",
-            "allowSwipe": "false",
-            "lockMenu": "false",
-            "allowTempTheme": "true",
-            "dateFormat": "DD/MM/YYYY",
-            "sizes": {
-                "sx": 48,
-                "sy": 48,
-                "gx": 6,
-                "gy": 6,
-                "cx": 6,
-                "cy": 6,
-                "px": 0,
-                "py": 0
-            }
-        }
-    },
-    {
         "id": "distance_sensor",
         "type": "mqtt in",
         "z": "b4d0eb395a2303e4",
@@ -658,5 +499,66 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "mqtt_broker",
+        "type": "mqtt-broker",
+        "name": "HiveMQ Broker",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "NodeREDClient",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "d9894dea32d11065",
+        "type": "ui_group",
+        "name": "Sensor de Distância",
+        "tab": "1ad5680cff09845b",
+        "order": 1,
+        "disp": true,
+        "width": 9,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a09422fd5fddeb31",
+        "type": "ui_group",
+        "name": "Informações Elétricas",
+        "tab": "1ad5680cff09845b",
+        "order": 2,
+        "disp": true,
+        "width": 9,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "cec59fd685eb8c68",
+        "type": "ui_group",
+        "name": "Status de Carregamento",
+        "tab": "1ad5680cff09845b",
+        "order": 3,
+        "disp": true,
+        "width": 9,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "1ad5680cff09845b",
+        "type": "ui_tab",
+        "name": "ECOCHARGE",
+        "icon": "fa-bolt",
+        "disabled": false,
+        "hidden": false
     }
 ]
