@@ -124,6 +124,8 @@ Este projeto apresenta um protótipo de **Estação de Carregamento Inteligente 
 
 <h2 id="requisitos">📋 Requisitos do Projeto de IOT</h2>
 
+### Funcionalidades do Projeto
+
 - [x] **Sistema IoT**: Integrar, no mínimo, 2 dispositivos (sensores/atuadores ou ambos), coletando, processando ou interagindo com base nos dados obtidos.
 - [x] **Hardware**: Construir a solução utilizando uma das plataformas abordadas em aula.
 - [x] **Dashboard**: Implementar um painel de controle para monitorar e/ou controlar em tempo real os dados e ações dos dispositivos IoT.
