@@ -4,6 +4,7 @@
     <summary><h3><strong>📑 Sumário</strong></h3>
         <ol>
             <li><a href="#descricao">Descrição do Projeto</a></li>
+            <li><a href="#equipe">Equipe</a></li>
             <li><a href="#funcionalidades">Principais Funcionalidades</a></li>
             <li><a href="#tecnica">Descrição Técnica</a></li>
             <li><a href="#pre-requisitos">Pré-requisitos</a></li>
@@ -18,6 +19,16 @@
 <h2>📚 Descrição do Projeto</h2>
 
 Este projeto apresenta um protótipo de **Estação de Carregamento Inteligente para Veículos Elétricos (EV)**, desenvolvido com um ESP32 para simulação no ambiente Wokwi. O objetivo principal é integrar sensores e atuadores, coletar dados em tempo real e exibir informações relevantes sobre o processo de carregamento em um dashboard interativo via Node-RED.
+
+<h2 id="equipe"> 📜 Equipe </h2>
+
+| Integrante                       | RM     | Turma |
+| -------------------------------- | ------ | ----- |
+| Augusto Barcelos Barros          | 98078  | 2TDSS |
+| Izabelly De Oliveira Menezes     | 551423 | 2TDSA |
+| Lucas Pinheiro de Melo           | 97707  | 2TDSS |
+| Marcos Henrique Garrido da Silva | 99578  | 2TDSA |
+| Mel Maia Rodrigues               | 98266  | 2TDSA |
 
 <h2 id="funcionalidades">🛠️ Principais Funcionalidades</h2>
 
