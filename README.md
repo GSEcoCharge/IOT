@@ -17,7 +17,7 @@
     </summary>
 </details>
 
-<h2>📚 Descrição do Projeto</h2>
+<h2 id="descricao">📚 Descrição do Projeto</h2>
 
 Este projeto apresenta um protótipo de **Estação de Carregamento Inteligente para Veículos Elétricos (EV)**, desenvolvido com um ESP32 para simulação no ambiente Wokwi. O objetivo principal é integrar sensores e atuadores, coletar dados em tempo real e exibir informações relevantes sobre o processo de carregamento em um dashboard interativo via Node-RED.
 
@@ -93,7 +93,7 @@ Este projeto apresenta um protótipo de **Estação de Carregamento Inteligente 
 - **Código Arduino (Wokwi)**: O código do ESP32, está disponível na plataforma Wokwi neste [Link](https://wokwi.com/projects/414012916024807425) e localizado no arquivo `sketch.ino` neste repositório.
 - **flows.json**: O arquivo de configuração do fluxo do Node-RED, com todos os nós necessários para visualizar os dados, está disponível neste repositório.
 
-<h2>🚀 Passos para Replicar e Testar a Solução</h2>
+<h2 id="passos">🚀 Passos para Replicar e Testar a Solução</h2>
 
 ### 1. **Configuração do Wokwi (Código Arduino)**
 
@@ -152,7 +152,7 @@ Este projeto apresenta um protótipo de **Estação de Carregamento Inteligente 
 - [x] **Protocolos**: Empregar o protocolo MQTT ou HTTP para a troca de mensagens entre dispositivos e gateway.
 - [x] **Desenvolvimento**: A solução pode ser desenvolvida e testada no simulador Wokwi ou com hardware real.
 
-### Entregáveis
+<h2 id="entregaveis">📦 Entregáveis</h2>
 
 - [x] **Protótipo Funcional** (até 60 pts): Protótipo operacional da solução IoT, simulado ou real.
 - [x] **Documentação** (até 30 pts): Repositório GitHub contendo:
@@ -164,7 +164,7 @@ Este projeto apresenta um protótipo de **Estação de Carregamento Inteligente 
 
 ### Entrega Final
 
-- [ ] Arquivo .txt no portal contendo:
+- [x] Arquivo .txt no portal contendo:
   - [x] Nomes dos integrantes do grupo.
   - [x] Link do repositório GitHub.
-  - [ ] Link do vídeo no YouTube.
+  - [x] Link do vídeo no YouTube.
