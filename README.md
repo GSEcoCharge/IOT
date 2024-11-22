@@ -5,6 +5,7 @@
         <ol>
             <li><a href="#descricao">Descrição do Projeto</a></li>
             <li><a href="#equipe">Equipe</a></li>
+            <li><a href="#links">Links Úteis</a></li>
             <li><a href="#funcionalidades">Principais Funcionalidades</a></li>
             <li><a href="#tecnica">Descrição Técnica</a></li>
             <li><a href="#pre-requisitos">Pré-requisitos</a></li>
@@ -29,6 +30,13 @@ Este projeto apresenta um protótipo de **Estação de Carregamento Inteligente 
 | Lucas Pinheiro de Melo           | 97707  | 2TDSS |
 | Marcos Henrique Garrido da Silva | 99578  | 2TDSA |
 | Mel Maia Rodrigues               | 98266  | 2TDSA |
+
+<h2 id="links">🔗 Links Úteis</h2>
+
+- [Organização no GitHub](https://github.com/GSEcoCharge)
+- [Repositório no GitHub](https://github.com/GSEcoCharge/IOT)
+- [Wokwi Simulator](https://wokwi.com/projects/414500380171781121)
+- [Vídeo no YouTube](https://www.youtube.com/watch?v=solvrQTv3sE)
 
 <h2 id="funcionalidades">🛠️ Principais Funcionalidades</h2>
 
@@ -55,8 +63,8 @@ Este projeto apresenta um protótipo de **Estação de Carregamento Inteligente 
 4. **Simulação Realista**:
    - Alteração dinâmica entre sistemas monofásico e bifásico via chave seletora, duplicando a potência de carregamento no modo bifásico.
    - Ajuste do sensor de corrente para simular diferentes cenários de consumo.
-
-<h2 id="tecnica">📋 Descrição Técnica</h2>
+   v
+   <h2 id="tecnica">📋 Descrição Técnica</h2>
 
 ### **Componentes Utilizados**
 
@@ -152,7 +160,7 @@ Este projeto apresenta um protótipo de **Estação de Carregamento Inteligente 
   - [x] Códigos-fonte.
   - [x] Fluxos do Node-RED (se aplicável).
   - [x] README detalhado com instruções para replicar e testar a solução.
-- [ ] **Vídeo de Apresentação** (até 10 pts): Vídeo de até 3 minutos, apresentando a solução, funcionamento e benefícios.
+- [x] **Vídeo de Apresentação** (até 10 pts): Vídeo de até 3 minutos, apresentando a solução, funcionamento e benefícios.
 
 ### Entrega Final
 
